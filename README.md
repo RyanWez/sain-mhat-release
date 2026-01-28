@@ -5,7 +5,7 @@
 ### 🇲🇲 မြန်မာဆိုင်ငယ်များအတွက် Professional Offline-first POS စနစ်
 
 <p>
-  <img src="https://img.shields.io/badge/Version-1.0.3-blue?style=for-the-badge&logo=flutter&logoColor=white" alt="Version"/>
+  <img src="https://img.shields.io/badge/Version-1.0.4-blue?style=for-the-badge&logo=flutter&logoColor=white" alt="Version"/>
   <img src="https://img.shields.io/badge/Platform-Android-green?style=for-the-badge&logo=android&logoColor=white" alt="Platform"/>
   <img src="https://img.shields.io/badge/Flutter-3.10+-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"/>
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License"/>
@@ -118,7 +118,15 @@
 - ✅ Stock Limit Check
 - ✅ Receipt Printing
 
-### 📦 Stock Management
+### � Dashboard
+
+- ✅ Real-time Sales Analytics
+- ✅ Revenue & Profit Charts
+- ✅ Quick Actions for POS, Stock, Items
+- ✅ Low Stock Alerts Dashboard
+- ✅ Daily/Weekly/Monthly Overview
+
+### �📦 Stock Management
 
 - ✅ FIFO Stock Tracking
 - ✅ Batch-based Cost Tracking
@@ -150,7 +158,9 @@
 - ✅ Receipt Customization
 - ✅ Tax Configuration
 - ✅ Currency Settings
-- ✅ Data Backup/Restore
+- ✅ Data Backup/Restore (Export/Import)
+- ✅ Hardware Settings (Printer & Barcode Scanner)
+- ✅ Force Update System
 
 ### 🔔 Notifications
 
@@ -692,6 +702,7 @@ Inclusive 5%:
   - 58mm POS Printers
   - 80mm POS Printers
   - ESC/POS Compatible
+- 📱 **USB Printers** (with OTG support)
 
 #### Print Content
 
@@ -727,6 +738,84 @@ Inclusive 5%:
 │    တင်ပါသည်            │
 └────────────────────────┘
 ```
+
+</td>
+</tr>
+</table>
+
+### 🖨️ Printer Setup
+
+<table>
+<tr>
+<td width="60%">
+
+#### 🔧 Setup Process
+
+1. **Select Connection Type**: Bluetooth or USB
+2. **Scan for Devices**: Auto-discover available printers
+3. **Connect**: Pair and connect to your printer
+4. **Test Print**: Verify connection with test receipt
+5. **Save Settings**: Store printer configuration
+
+#### 🔌 Supported Connection Types
+
+| Type         | Description                      |
+| ------------ | -------------------------------- |
+| 📶 **Bluetooth** | Wireless thermal printers     |
+| 🔌 **USB**       | OTG cable connection          |
+
+</td>
+<td width="40%">
+
+```
+┌──────────────────────┐
+│  🖨️ PRINTER SETUP   │
+├──────────────────────┤
+│                      │
+│  📶 Bluetooth        │
+│  └── Scan & Pair     │
+│                      │
+│  🔌 USB              │
+│  └── Connect Cable   │
+│                      │
+│  [🔍 Scan Devices]   │
+│  [🧪 Test Print]     │
+│                      │
+└──────────────────────┘
+```
+
+</td>
+</tr>
+</table>
+
+### 📷 Barcode Scanner Settings
+
+<table>
+<tr>
+<td width="50%">
+
+#### ⚙️ Scanner Configuration
+
+- **Auto-focus**: Enable/Disable camera auto-focus
+- **Scan Modes**: QR Code, Barcode, Both
+- **Beep Sound**: Audio feedback on scan
+- **Vibration**: Haptic feedback
+- **Flash Light**: Enable torch for dark environments
+- **Scan Delay**: Prevent duplicate scans
+
+</td>
+<td width="50%">
+
+#### 📋 Supported Formats
+
+- QR Code
+- EAN-13 (Barcode)
+- EAN-8
+- UPC-A
+- UPC-E
+- Code 39
+- Code 128
+- ITF
 
 </td>
 </tr>
@@ -769,36 +858,70 @@ Export ထားသော ဖိုင်များကို Share
 <tr>
 <td width="50%">
 
-#### 💾 Local Backup
+#### 💾 Export Data (Backup)
 
-- Device Storage သို့ Database Backup
-- Encrypted Backup File
-- Manual Backup Trigger
+- **Encrypted Backup**: SQLCipher encrypted `.db` files
+- **File Format**: `sainmhat_backup_YYYYMMDD_HHMMSS.db`
+- **Export Location**: Device Downloads folder
+- **Backup Contents**:
+  - Items & Categories
+  - Stock Batches (FIFO)
+  - Sales History
+  - Shop Settings
+- **Backup History**: View & manage previous backups
+- **Share Options**: Send backup via email, cloud storage
 
-#### ☁️ Cloud Sync (Optional)
+#### 📥 Import Data (Restore)
 
-- Supabase Cloud Integration
-- Auto Sync (if enabled)
-- Cross-device Access
+- **File Selection**: Choose `.db` file from device
+- **Data Preview**: View backup info before restore
+- **Import Options**:
+  - 🔄 **Merge**: Add to existing data
+  - 🗑️ **Replace**: Clear and restore
+- **Validation**: Auto-check file integrity
+- **Restore Report**: Detailed import summary
 
 </td>
 <td width="50%">
 
 ```
-┌─────────────────────────┐
-│   💾 BACKUP OPTIONS     │
-├─────────────────────────┤
-│                         │
-│  📱 Local Backup        │
-│  └── backup_20260125.db │
-│                         │
-│  ☁️ Cloud Sync          │
-│  └── Last: 2 hours ago  │
-│                         │
-│  [💾 Backup Now]        │
-│  [📥 Restore]           │
-│                         │
-└─────────────────────────┘
+┌─────────────────────────────┐
+│   💾 EXPORT DATA            │
+├─────────────────────────────┤
+│                             │
+│  � Backup Contents:        │
+│  ├── Items: 150             │
+│  ├── Categories: 12         │
+│  ├── Sales: 450             │
+│  └── Stock Batches: 78      │
+│                             │
+│  [💾 Export Now]            │
+│  [📤 Share Backup]          │
+│                             │
+│  📝 Recent Backups:         │
+│  ├── 2026-01-28_14:30       │
+│  ├── 2026-01-25_09:15       │
+│  └── 2026-01-20_18:45       │
+│                             │
+└─────────────────────────────┘
+
+┌─────────────────────────────┐
+│   📥 IMPORT DATA            │
+├─────────────────────────────┤
+│                             │
+│  📂 Select Backup File      │
+│  └── sainmhat_backup...db   │
+│                             │
+│  ℹ️ Backup Info:            │
+│  ├── Date: 2026-01-25       │
+│  ├── Size: 2.4 MB           │
+│  ├── Items: 150             │
+│  └── Sales: 450             │
+│                             │
+│  [� Merge Data]            │
+│  [�️ Replace All]           │
+│                             │
+└─────────────────────────────┘
 ```
 
 </td>
@@ -950,6 +1073,19 @@ Export ထားသော ဖိုင်များကို Share
 <th>Version</th>
 <th>Date</th>
 <th>Changes</th>
+</tr>
+<tr>
+<td><strong>v1.0.4</strong></td>
+<td>2026-01-28</td>
+<td>
+✅ Dashboard Screen with Analytics<br/>
+✅ Printer Setup (Bluetooth & USB)<br/>
+✅ Barcode Scanner Settings<br/>
+✅ Data Export/Import (Backup/Restore)<br/>
+✅ Force Update System<br/>
+✅ Hardware Settings Screen<br/>
+✅ Bug Fixes & Performance Improvements
+</td>
 </tr>
 <tr>
 <td><strong>v1.0.3</strong></td>
